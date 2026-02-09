@@ -1,4 +1,4 @@
-export const projects = [
+const projects = [
   {
     title: "Custom Shopify Theme with Advanced Sections",
     description:
@@ -21,3 +21,5 @@ export const projects = [
     code: "https://github.com/Roshandube/shopify-custom-theme",
   },
 ];
+
+export default projects;
