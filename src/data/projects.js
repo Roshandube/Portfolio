@@ -1,4 +1,4 @@
-const projects = [
+export const projects = [
   {
     title: "Custom Shopify Theme with Advanced Sections",
     description:
@@ -22,4 +22,4 @@ const projects = [
   },
 ];
 
-export default projects;
+console.log("PROJECTS FILE LOADED", projects);
