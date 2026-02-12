@@ -1,7 +1,15 @@
 export default function ProjectCard({ project }) {
   if (!project) return null;
 
-  const { title, description, features = [], tech = [], live, code } = project;
+  const {
+    title,
+    description,
+    features = [],
+    tech = [],
+    live,
+    code,
+    demoVideo,
+  } = project;
 
   return (
     <div className="project-card">
@@ -26,18 +34,29 @@ export default function ProjectCard({ project }) {
         </p>
       )}
 
+      {demoVideo && (
+        <div className="mt-6">
+          <iframe
+            width="100%"
+            height="400"
+            src={`https://www.youtube.com/embed/${demoVideo}`}
+            title="Project Demo"
+            frameBorder="0"
+            allowFullScreen
+            className="rounded-lg shadow"
+          ></iframe>
+        </div>
+      )}
+
       <div className="project-links">
-        <a href={project.live} target="_blank" rel="noopener noreferrer">
-          Live Demo
-        </a>
-        {" | "}
-        <a href={project.code} target="_blank" rel="noopener noreferrer">
-          Code
-        </a>
+        {code && (
+          <a href={code} target="_blank" rel="noopener noreferrer">
+            Code
+          </a>
+        )}
 
         <p style={{ marginTop: "8px", fontSize: "14px", color: "#9ca3af" }}>
-          Live demo available via Shopify development store (password
-          protected).
+          Demo video available above.
         </p>
       </div>
     </div>

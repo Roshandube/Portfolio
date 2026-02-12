@@ -19,6 +19,7 @@ export const projects = [
     ],
     live: "https://dev-store22081998.myshopify.com/",
     code: "https://github.com/Roshandube/shopify-custom-theme",
+    demoVideo: "r8oUEMDbuUc",
   },
 ];
 
