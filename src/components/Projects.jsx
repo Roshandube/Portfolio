@@ -4,7 +4,7 @@ import ProjectCard from "./ProjectCard";
 export default function Projects() {
   return (
     <section id="projects">
-      <h2>Shopify Project</h2>
+      <h2> Projects</h2>
       {projects.map((project) => (
         <ProjectCard key={project.title} project={project} />
       ))}

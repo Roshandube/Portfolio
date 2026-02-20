@@ -21,6 +21,33 @@ export const projects = [
     code: "https://github.com/Roshandube/shopify-custom-theme",
     demoVideo: "r8oUEMDbuUc",
   },
-];
+  {
+    id: "ambulance-management-system",
+    title: "Ambulance Management System (AMS)",
+    description:
+      "A centralized web platform built using Java (JSP/Servlets) and MySQL to manage ambulance booking, driver allocation, and fleet tracking with role-based authentication.",
+    features: [
+      "Role-based access (Admin, Driver, Patient)",
+      "Emergency booking with source and destination selection",
+      "Ambulance status tracking (Available / Assigned)",
+      "Driver profile and license verification",
+      "Feedback and complaint system",
+    ],
+    tech: ["Java", "JSP", "Servlets", "MySQL", "Tomcat", "Maven"],
+    images: [
+      { label: "Dashboard", src: "/images/dashboard.png" },
+      { label: "Driver Registration", src: "/images/driver-registration.png" },
+      { label: "Driver Dashboard", src: "/images/driver-homepage.png" },
+      {
+        label: "Patient Registration",
+        src: "/images/patient-registration.png",
+      },
+      { label: "Patient Dashboard", src: "/images/patient-homepage.png" },
+      { label: "Admin Login", src: "/images/admin-login.png" },
 
-console.log("PROJECTS FILE LOADED", projects);
+      { label: "Admin Dashboard", src: "/images/admin-dashboard.png" },
+    ],
+    live: "Available on request (Runs on Apache Tomcat)",
+    code: "https://github.com/Roshandube/Ambulance-Management-System",
+  },
+];

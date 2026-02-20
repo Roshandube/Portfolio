@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProjectCard({ project }) {
   if (!project) return null;
 
@@ -6,14 +8,14 @@ export default function ProjectCard({ project }) {
     description,
     features = [],
     tech = [],
-    live,
+    images = [],
     code,
     demoVideo,
   } = project;
 
   return (
     <div className="project-card">
-      <h3>{title}</h3>
+      <h3 className="project-title">{title}</h3>
 
       <p>{description}</p>
 
@@ -32,6 +34,12 @@ export default function ProjectCard({ project }) {
         <p>
           <strong>Tech:</strong> {tech.join(", ")}
         </p>
+      )}
+
+      {images.length > 0 && (
+        <Link to={`/project/${project.id}`} className="view-btn">
+          View Screenshots
+        </Link>
       )}
 
       {demoVideo && (
@@ -54,10 +62,6 @@ export default function ProjectCard({ project }) {
             Code
           </a>
         )}
-
-        <p style={{ marginTop: "8px", fontSize: "14px", color: "#9ca3af" }}>
-          Demo video available above.
-        </p>
       </div>
     </div>
   );

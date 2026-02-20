@@ -8,7 +8,7 @@ export default function Navbar() {
           <a href="#home">Home</a>
         </li>
         <li>
-          <a href="#skills">Skills</a>
+          <a href="#skills">Technical Skills</a>
         </li>
         <li>
           <a href="#projects">Projects</a>
