@@ -1,6 +1,6 @@
 export default function Certifications() {
   return (
-    <section>
+    <section className="content-section">
       <h2>Certifications</h2>
 
       <div className="project-card">
