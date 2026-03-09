@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import Seo from "./Seo";
 
 export default function ProjectDetails() {
   const { id } = useParams();
@@ -10,8 +11,19 @@ export default function ProjectDetails() {
     return <h2 style={{ padding: "40px" }}>Project Not Found</h2>;
   }
 
+  const firstImage = project.images?.[0];
+  const imagePath =
+    typeof firstImage === "object" ? firstImage.src : firstImage || "/images/admin-login.png";
+
   return (
     <div className="details-page">
+      <Seo
+        title={`${project.title} | Roshan Dubey`}
+        description={project.description}
+        path={`/project/${project.id}`}
+        image={imagePath}
+        type="article"
+      />
       {/* Back Button */}
       <Link to="/" className="back-btn">
         ← Back to Projects
@@ -31,7 +43,13 @@ export default function ProjectDetails() {
 
             <img
               src={typeof img === "object" ? img.src : img}
-              alt="Project Screenshot"
+              alt={
+                typeof img === "object"
+                  ? `${project.title} - ${img.label}`
+                  : `${project.title} screenshot ${index + 1}`
+              }
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
             />
           </div>
         ))}

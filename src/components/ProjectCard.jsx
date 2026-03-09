@@ -50,6 +50,8 @@ export default function ProjectCard({ project }) {
             src={`https://www.youtube.com/embed/${demoVideo}`}
             title="Project Demo"
             frameBorder="0"
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
             className="rounded-lg shadow"
           ></iframe>

@@ -1,15 +1,70 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import ProjectDetails from "./components/ProjectDetails";
 import Navbar from "./components/Navbar";
 import ScrollProgress from "./components/ScrollProgress";
 import Hero from "./components/Hero";
-import BestPractices from "./components/BestPractices";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Education from "./components/Education";
-import Certifications from "./components/Certifications";
+import Seo from "./components/Seo";
+
+const ProjectDetails = lazy(() => import("./components/ProjectDetails"));
+const BestPractices = lazy(() => import("./components/BestPractices"));
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
+const Education = lazy(() => import("./components/Education"));
+const Certifications = lazy(() => import("./components/Certifications"));
+
+function HomePage() {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Roshan Dubey Portfolio",
+    url: typeof window !== "undefined" ? window.location.origin : "",
+  };
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Roshan Dubey",
+    jobTitle: "Shopify Theme Developer",
+    url: typeof window !== "undefined" ? window.location.origin : "",
+    sameAs: [
+      "https://github.com/Roshandube",
+      "https://www.linkedin.com/in/roshan-dubey-380870235",
+    ],
+  };
+
+  return (
+    <>
+      <Seo
+        title="Roshan Dubey | Shopify Theme Developer"
+        description="Portfolio of Roshan Dubey, a Shopify theme developer focused on high-converting storefronts, Liquid architecture, performance, and maintainable frontend systems."
+        path="/"
+        image="/images/admin-login.png"
+        structuredData={[websiteSchema, personSchema]}
+      />
+      <Hero />
+      <Suspense fallback={null}>
+        <Skills />
+      </Suspense>
+      <Suspense fallback={null}>
+        <BestPractices />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Projects />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Education />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Certifications />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Contact />
+      </Suspense>
+    </>
+  );
+}
 
 function App() {
   return (
@@ -41,24 +96,15 @@ function App() {
 
         <main className="app-main">
           <Routes>
-            {/* Home Page */}
+            <Route path="/" element={<HomePage />} />
             <Route
-              path="/"
+              path="/project/:id"
               element={
-                <>
-                  <Hero />
-                  <BestPractices />
-                  <Skills />
-                  <Projects />
-                  <Education />
-                  <Certifications />
-                  <Contact />
-                </>
+                <Suspense fallback={<div className="details-page">Loading...</div>}>
+                  <ProjectDetails />
+                </Suspense>
               }
             />
-
-            {/* Project Details Page */}
-            <Route path="/project/:id" element={<ProjectDetails />} />
           </Routes>
         </main>
       </div>

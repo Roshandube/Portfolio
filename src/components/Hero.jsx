@@ -5,9 +5,8 @@ export default function Hero() {
         <p className="hero-eyebrow">Shopify Theme Developer • Frontend Engineer</p>
 
         <h1 className="hero-title">
-          Roshan —{" "}
           <span className="hero-highlight">
-            building high-converting Shopify experiences
+            Building high-converting Shopify experiences
           </span>
         </h1>
 
